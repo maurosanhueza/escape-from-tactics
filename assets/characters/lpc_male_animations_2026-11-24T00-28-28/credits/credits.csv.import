@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bgeh2b3tunbak"
+
+[deps]
+
+files=["res://assets/characters/lpc_male_animations_2026-11-24T00-28-28/credits/credits.notes.translation", "res://assets/characters/lpc_male_animations_2026-11-24T00-28-28/credits/credits.authors.translation", "res://assets/characters/lpc_male_animations_2026-11-24T00-28-28/credits/credits.licenses.translation", "res://assets/characters/lpc_male_animations_2026-11-24T00-28-28/credits/credits.urls.translation"]
+
+source_file="res://assets/characters/lpc_male_animations_2026-11-24T00-28-28/credits/credits.csv"
+dest_files=["res://assets/characters/lpc_male_animations_2026-11-24T00-28-28/credits/credits.notes.translation", "res://assets/characters/lpc_male_animations_2026-11-24T00-28-28/credits/credits.authors.translation", "res://assets/characters/lpc_male_animations_2026-11-24T00-28-28/credits/credits.licenses.translation", "res://assets/characters/lpc_male_animations_2026-11-24T00-28-28/credits/credits.urls.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true
