@@ -6,6 +6,8 @@ extends Node2D
 
 @export var offSet = Vector2(0, -6)
 
+@onready var animatedSprite: AnimatedSprite2D = get_parent().get_node("AnimatedSprite2D")
+
 var isMoving = false
 
 
@@ -42,10 +44,25 @@ func _move() -> void:
 	var currentTilePosition = startTilePosition
 
 	for movement in movementArray:
+		var previousTilePosition = currentTilePosition
 		currentTilePosition += movement
 
-		# Celda -> posición local -> posición global
-		var targetLocalPosition = tileMap.map_to_local(currentTilePosition) + offSet
+		# Determinar dirección visual
+		var previousPosition = tileMap.map_to_local(previousTilePosition)
+		var nextPosition = tileMap.map_to_local(currentTilePosition)
+		var direction = nextPosition - previousPosition
+
+		if abs(direction.x) > abs(direction.y):
+			if direction.x > 0:
+				animatedSprite.play("right")
+			else:
+				animatedSprite.play("left")
+		elif direction.y < 0:
+			animatedSprite.play("back")
+		else:
+			animatedSprite.play("idle")
+
+		var targetLocalPosition = nextPosition + offSet
 		var targetGlobalPosition = tileMap.to_global(targetLocalPosition)
 
 		var tween = create_tween()
@@ -57,6 +74,8 @@ func _move() -> void:
 		)
 
 		await tween.finished
+
+	animatedSprite.play("idle")
 
 	isMoving = false
 

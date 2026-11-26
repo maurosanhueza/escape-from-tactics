@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dmq36evnfcnjt"]
 
 [ext_resource type="Texture2D" uid="uid://dde8myemwldob" path="res://assets/characters/lpc_male_animations_2026-11-24T00-28-28/standard/idle.png" id="1_pq8s5"]
+[ext_resource type="Texture2D" uid="uid://bc2jluaqswkw1" path="res://assets/characters/lpc_male_animations_2026-11-24T00-28-28/standard/run.png" id="2_7n8ao"]
 [ext_resource type="Script" uid="uid://b51e4jdfboc01" path="res://scripts/characters/hexa_agent.gd" id="2_gin2a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7wym0"]
@@ -34,6 +35,38 @@ region = Rect2(0, 192, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_oihyf"]
 atlas = ExtResource("1_pq8s5")
 region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lms1"]
+atlas = ExtResource("2_7n8ao")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufbvs"]
+atlas = ExtResource("2_7n8ao")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqro2"]
+atlas = ExtResource("2_7n8ao")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpxo2"]
+atlas = ExtResource("2_7n8ao")
+region = Rect2(192, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bb7xv"]
+atlas = ExtResource("2_7n8ao")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0xnk"]
+atlas = ExtResource("2_7n8ao")
+region = Rect2(320, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cro7t"]
+atlas = ExtResource("2_7n8ao")
+region = Rect2(384, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4687"]
+atlas = ExtResource("2_7n8ao")
+region = Rect2(448, 192, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cl16b"]
 animations = [{
@@ -70,6 +103,11 @@ animations = [{
 "name": &"left",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": 1,
+"name": &"left_run",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m6phi")
@@ -80,6 +118,45 @@ animations = [{
 "loop": 1,
 "name": &"right",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_7lms1")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_ufbvs")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_mqro2")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_bpxo2")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_bb7xv")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_m0xnk")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_cro7t")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_q4687")
+}],
+"loop": 1,
+"name": &"right_run",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"top_run",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"up_run",
+"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=280255136]
@@ -88,7 +165,7 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1789151509]
 sprite_frames = SubResource("SpriteFrames_cl16b")
-animation = &"right"
+animation = &"top_run"
 
 [node name="hexa_agent" type="Node2D" parent="." unique_id=1704653390]
 script = ExtResource("2_gin2a")
