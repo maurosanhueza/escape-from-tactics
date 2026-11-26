@@ -2,6 +2,8 @@
 extends Node2D
 
 @export var tileMap: TileMapLayer
+@export var obstacles: TileMapLayer
+
 @export var offSet = Vector2(0, -6)
 
 var isMoving = false
@@ -112,5 +114,15 @@ func snap(vector: Vector2i) -> Vector2i:
 
 
 func _has_tile(tilePosition: Vector2i) -> bool:
+	# Debe existir terreno
 	var tileData = tileMap.get_cell_atlas_coords(tilePosition)
-	return tileData != Vector2i(-1, -1)
+
+	if tileData == Vector2i(-1, -1):
+		return false
+
+	# No debe existir un obstáculo en esa celda
+	if obstacles != null:
+		if obstacles.get_cell_source_id(tilePosition) != -1:
+			return false
+
+	return true
